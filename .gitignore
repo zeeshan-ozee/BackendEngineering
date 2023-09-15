@@ -98,6 +98,8 @@ StyleCopReport.xml
 *.svclog
 *.scc
 
+*.vs
+.vs
 # Chutzpah Test files
 _Chutzpah*
 
@@ -383,7 +385,7 @@ FodyWeavers.xsd
 !.vscode/launch.json
 !.vscode/extensions.json
 *.code-workspace
-
+.vs/*
 # Local History for Visual Studio Code
 .history/
 
