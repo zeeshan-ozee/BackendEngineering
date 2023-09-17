@@ -1,5 +1,4 @@
 ﻿using System.Security.Claims;
-using IdentityServer4;
 using IdentityServer4.Models;
 using IdentityServer4.Test;
 using IdentityModel;
@@ -89,61 +88,4 @@ public class Config
 
     }
 
-}
-
-public class Config2
-{
-    public static IEnumerable<ApiResource> GetApiResources()
-    {
-        return new List<ApiResource>
-            {
-                new ApiResource("ApiName", "ApiDisplayName")
-            };
-    }
-
-    public static List<IdentityResource> GetIdentityResources()
-    {
-        return new List<IdentityResource>
-            {
-                new IdentityResources.OpenId(),
-                new IdentityResources.Profile() // <-- usefull
-            };
-    }
-
-    public static IEnumerable<Client> GetClients()
-    {
-        return new[]
-        {
-                // for public api
-                new Client
-                {
-                    ClientId = "secret_client_id",
-                    AllowedGrantTypes = GrantTypes.ClientCredentials,
-                    ClientSecrets =
-                    {
-                        new Secret("secret".Sha256())
-                    },
-
-                 AllowedScopes =
-                {
-                    IdentityServerConstants.StandardScopes.OpenId,
-                    IdentityServerConstants.StandardScopes.Profile,
-                    "ApiName"
-                }
-            }
-        };
-    }
-
-
-    public static IEnumerable<ApiScope> GetApiScopes()
-    {
-        return new List<ApiScope>
-             {
-                 new ApiScope(name: "read",   displayName: "Read your data."),
-                 new ApiScope(name: "write",  displayName: "Write your data."),
-                 new ApiScope(name: "delete", displayName: "Delete your data."),
-                 new ApiScope(name: "identityserverapi", displayName: "manage identityserver api endpoints."),
-                   new ApiScope(name: "ApiName", displayName: "ApiName.")
-             };
-    }
 }
