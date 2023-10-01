@@ -5,6 +5,7 @@ using IdentityModel;
 
 namespace BOD.IdentitySrv;
 
+//https://github.com/innovativeinstitution/BankOfDotNet/blob/master/BankOfDotNet.ConsoleClient/Program.cs
 public class IdentityConfiguration
 {
     static string scope_1 = "api.read";
@@ -22,6 +23,18 @@ public class IdentityConfiguration
                 new Claim(JwtClaimTypes.GivenName, "Gowtham"),
                 new Claim(JwtClaimTypes.FamilyName, "Kumar"),
                 new Claim(JwtClaimTypes.WebSite, "https://gowthamcbe.com/"),
+            }
+        },new TestUser
+        {
+            SubjectId = "2",
+            Username = "Zeeshan",
+            Password = "zeeshan@123",
+            Claims =
+            {
+                new Claim(JwtClaimTypes.Name, "Zeeshan"),
+                new Claim(JwtClaimTypes.GivenName, "Zee"),
+                new Claim(JwtClaimTypes.FamilyName, "Asghar"),
+                new Claim(JwtClaimTypes.WebSite, "https://XYZ.com/"),
             }
         }
 };
@@ -60,5 +73,12 @@ public class IdentityConfiguration
             ClientSecrets = { new Secret("secret".Sha256()) },
             AllowedScopes = { scope_1 }
         },
+        new Client{
+            ClientId="ro.client",
+            AllowedGrantTypes= GrantTypes.ResourceOwnerPasswordAndClientCredentials,
+             ClientSecrets = { new Secret("secret".Sha256()) },
+            AllowedScopes={scope_1, scope_2}
+
+        }
 };
 }
