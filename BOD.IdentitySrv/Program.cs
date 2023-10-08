@@ -3,6 +3,8 @@ using BOD.IdentitySrv;
 using Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
+
+//builder.Services.AddMvc();
 //builder.Configuration.get;
 builder.Services.AddIdentityServer()
 
@@ -28,5 +30,6 @@ app.UseIdentityServer();
 //        await context.Response.WriteAsync("Hello World!");
 //    });
 //});
-
+// app.UseStatusCodePages();
+// app.UseMvcWithDefaultRoute();
 app.Run();
