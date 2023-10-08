@@ -1,6 +1,9 @@
 # BackendEngineering
 
- dotnet new search identity     
+ dotnet new search identity  
+ 
+ dotnet new install identityserver4.templates
+
  https://github.com/dotnet/templating/wiki/Available-templates-for-dotnet-new
 https://dotnetnew.azurewebsites.net/
 
