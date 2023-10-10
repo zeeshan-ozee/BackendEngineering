@@ -1,5 +1,9 @@
 # BackendEngineering
 
+dotnet new is4ui
+
+dotnet build "d:\Git Source\BackendEngineering\BankOfDotNet.IdentitySvr\BankOfDotNet.IdentitySvr.csproj"
+
  dotnet new search identity  
  
  dotnet new install identityserver4.templates
